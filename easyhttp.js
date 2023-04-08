@@ -36,10 +36,13 @@ class EasyHTTP {
 
 	delete(url) {
     return new Promise((resolve, reject) => {
-      fetch(url)
-        .then((res) => {return res.json();})
-        .then((data) => resolve("User Delete..."))
-        .catch((err) => reject(err));
+      fetch(url,{
+				method:"DELETE",
+				headers:{"Content-type":"application/json"}
+			})
+      .then((res) => {return res.json();})
+      .then((data) => resolve("User Delete..."))
+      .catch((err) => reject(err));
     });
   }
 }
